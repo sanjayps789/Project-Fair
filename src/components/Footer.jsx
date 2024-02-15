@@ -54,7 +54,7 @@ function Footer() {
             </div> 
           </Col>
         </Row>
-        <p className='text-center pb-5'>© 2024 Copyright- Daily Cart</p>
+        <p className='text-center pb-5'>© 2024 Copyright- Project Fair</p>
 
       </Container>
     </div>

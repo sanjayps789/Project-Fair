@@ -5,8 +5,11 @@ import Auth from './pages/Auth'
 import Dashboard from './pages/Dashboard'
 import Projects from './pages/Projects'
 import Footer from './components/Footer'
+import { useContext } from 'react'
+import { tokenAuthContext } from './Context/TokenAuth'
 
 function App() {
+  const {isAuthorised,setIsAuthorised} = useContext(tokenAuthContext)
 
   return (
     <>
@@ -14,8 +17,8 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/login' element={<Auth/>}/>
       <Route path='/register' element={<Auth insideRegister/>}/>
-      <Route path='/dashboard' element={<Dashboard/>}/>
-      <Route path='/projects' element={<Projects/>}/>
+      <Route path='/dashboard' element={isAuthorised?<Dashboard/>:<Home/>}/>
+      <Route path='/projects' element={isAuthorised?<Projects/>:<Home/>}/>
       <Route path='/*' element={<Navigate to={'/'}/>}/>
     </Routes>
     <Footer/>
